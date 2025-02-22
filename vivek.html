@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vivek Kumar</title>
+  <!-- Open Graph / Facebook Meta Tags -->
+  <meta property="og:title" content="Vivek Kumar" />
+  <meta property="og:description" content="Digital Agency Career Landing Page" />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=Vivek+Kumar" />
+  <meta property="og:url" content="https://yourwebsite.com" />
+  <meta property="og:type" content="website" />
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Vivek Kumar" />
+  <meta name="twitter:description" content="Digital Agency Career Landing Page" />
+  <meta name="twitter:image" content="https://via.placeholder.com/1200x630.png?text=Vivek+Kumar" />
+  <style>
+    /* Basic Reset & Variables */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+    :root {
+      --primary-color: #1dc8cd;
+      --secondary-color: #55fabe;
+      --dark-color: #121212;
+      --light-color: #ffffff;
+      --accent-color: #ff4081;
+    }
+    /* Header & Navigation */
+    header {
+      background: #1e1e1e;
+      padding: 20px 40px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+    header nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header nav .logo {
+      color: var(--primary-color);
+      font-size: 28px;
+      font-weight: bold;
+    }
+    header nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+    header nav ul li {
+      margin-left: 20px;
+    }
+    header nav ul li a {
+      text-decoration: none;
+      color: var(--light-color);
+      transition: color 0.3s ease;
+    }
+    header nav ul li a:hover {
+      color: var(--primary-color);
+    }
+    /* Social Media Icons in Navbar */
+    header nav .social-icons {
+      display: flex;
+      align-items: center;
+      margin-left: 20px;
+    }
+    header nav .social-icons a {
+      color: var(--light-color);
+      margin-left: 10px;
+      font-size: 18px;
+      transition: color 0.3s ease;
+    }
+    header nav .social-icons a:hover {
+      color: var(--primary-color);
+    }
+    /* Hero Section */
+    #hero {
+      background: url('https://source.unsplash.com/1600x900/?digital,tech') center center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      text-align: center;
+      padding: 0 20px;
+    }
+    #hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+    }
+    #hero .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+    }
+    #hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      animation: fadeInDown 1s ease-out;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    }
+    #hero p {
+      font-size: 20px;
+      margin-bottom: 30px;
+      animation: fadeInUp 1s ease-out;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+    }
+    #hero a {
+      background: var(--primary-color);
+      color: var(--light-color);
+      padding: 10px 25px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+      animation: fadeInUp 1s ease-out;
+    }
+    #hero a:hover {
+      background: var(--secondary-color);
+    }
+    /* Section Base Styling */
+    section {
+      padding: 100px 40px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease-out;
+    }
+    section.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 32px;
+      position: relative;
+    }
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: var(--primary-color);
+      margin: 10px auto 0 auto;
+    }
+    /* About Section */
+    #about {
+      background: #1e1e1e;
+      padding: 100px 40px;
+    }
+    #about .about-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    #about p {
+      font-size: 18px;
+      line-height: 1.8;
+    }
+    /* Services Section */
+    #services {
+      background: #151515;
+      padding: 100px 40px;
+    }
+    #services .services-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .service-item {
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.9);
+    }
+    .service-item i {
+      font-size: 48px;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+    }
+    .service-item h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+    .service-item p {
+      font-size: 16px;
+      color: #aaa;
+    }
+    /* Portfolio Section */
+    #portfolio {
+      background: #1e1e1e;
+      padding: 100px 40px;
+    }
+    #portfolio .portfolio-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+    .portfolio-item img {
+      width: 100%;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .portfolio-item:hover img {
+      transform: scale(1.1);
+    }
+    .portfolio-item .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(29, 200, 205, 0.8);
+      color: #fff;
+      opacity: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.5s ease;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .portfolio-item:hover .overlay {
+      opacity: 1;
+    }
+    /* Testimonials Section */
+    #testimonials {
+      background: #151515;
+      padding: 100px 40px;
+    }
+    #testimonials .testimonial-container {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .testimonial-item {
+      margin-bottom: 40px;
+    }
+    .testimonial-item p {
+      font-style: italic;
+      margin-bottom: 10px;
+      color: #ccc;
+    }
+    .testimonial-item h4 {
+      color: var(--primary-color);
+    }
+    /* Contact Section */
+    #contact {
+      background: #1e1e1e;
+      padding: 100px 40px;
+    }
+    #contact form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    #contact input, #contact textarea {
+      padding: 15px;
+      border: 1px solid #333;
+      border-radius: 5px;
+      font-size: 16px;
+      background: #121212;
+      color: #e0e0e0;
+    }
+    #contact button {
+      padding: 15px;
+      border: none;
+      background: var(--primary-color);
+      color: #fff;
+      border-radius: 5px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    #contact button:hover {
+      background: var(--secondary-color);
+    }
+    /* Footer */
+    footer {
+      background: #121212;
+      color: var(--light-color);
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid #333;
+    }
+    /* Responsive Navigation (Simple) */
+    @media (max-width: 768px) {
+      header nav ul {
+        display: none;
+      }
+    }
+    /* Keyframe Animations */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav>
+      <div class="logo">Vivek Kumar</div>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="social-icons">
+        <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="hero-content">
+      <h1>Welcome to Vivek Kumar's Digital World</h1>
+      <p>Empowering your digital career with creativity, innovation, and passion.</p>
+      <a href="#contact">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="section-title">About Me</div>
+    <div class="about-content">
+      <p>I am Vivek Kumar, a passionate digital strategist and creative professional committed to transforming ideas into digital realities. Join me on this journey and let's shape the future of digital innovation together.</p>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <div class="section-title">What I Do</div>
+    <div class="services-container">
+      <div class="service-item">
+        <i class="fas fa-laptop-code"></i>
+        <h3>Web Development</h3>
+        <p>Crafting responsive and robust websites that capture your audience.</p>
+      </div>
+      <div class="service-item">
+        <i class="fas fa-mobile-alt"></i>
+        <h3>Digital Marketing</h3>
+        <p>Boosting your brand through innovative digital marketing strategies.</p>
+      </div>
+      <div class="service-item">
+        <i class="fas fa-search"></i>
+        <h3>SEO Optimization</h3>
+        <p>Enhancing your online presence with effective SEO techniques.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio">
+    <div class="section-title">Portfolio</div>
+    <div class="portfolio-container">
+      <div class="portfolio-item">
+        <img src="https://source.unsplash.com/600x400/?website,design" alt="Project 1" />
+        <div class="overlay">Project 1</div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://source.unsplash.com/600x400/?app,ui" alt="Project 2" />
+        <div class="overlay">Project 2</div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://source.unsplash.com/600x400/?digital,marketing" alt="Project 3" />
+        <div class="overlay">Project 3</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials">
+    <div class="section-title">Testimonials</div>
+    <div class="testimonial-container">
+      <div class="testimonial-item">
+        <p>"Vivek Kumar transformed our digital strategy and brought innovation to our online presence. His expertise is unparalleled!"</p>
+        <h4>- Jane Doe</h4>
+      </div>
+      <div class="testimonial-item">
+        <p>"A visionary in the digital world. His passion and creativity have truly set him apart in the industry."</p>
+        <h4>- John Smith</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="section-title">Contact Me</div>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Vivek Kumar. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript for Scroll Animations & Smooth Scrolling -->
+  <script>
+    // Reveal sections when scrolled into view
+    const sections = document.querySelectorAll('section');
+    const options = { threshold: 0.2 };
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+    sections.forEach(section => observer.observe(section));
+
+    // Smooth scroll for navigation links
+    const navLinks = document.querySelectorAll('header nav ul li a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+  <!-- FontAwesome CDN for icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
